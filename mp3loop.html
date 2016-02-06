@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="mp3loopcss.css"/>
+</head>
+<body>
+  <div class="background">
+    <h1>Loop it!</h1>
+  </div>
+  <div class="inputpanel">
+  <form action = "demo_form.asp">
+  <strong>Start Time: </strong>
+  <input type="text" name="start" id="start"><br>
+  <strong>End Time:</strong>
+  <input type="text" name="end" id="end"><br>
+  </form> 
+  <strong>MP3 Filename: </strong>
+  <input type="text" name="mp3drop" id="mp3drop">
+  <button onclick="playSegment(document.getElementById('mp3drop').value,
+                               document.getElementById('start').value,
+                               document.getElementById('end').value)"
+                  type="button"> Enable loop</button>
+
+  <button onclick="pauseMusic()" type="button"> Pause</button>
+  </div>
+  <script>
+    var str = document.getElementById('start').value;
+    var en = document.getElementById('end').value;
+    var mus;
+    function playSegment (mus1,str, en) {
+      alert("playing");
+      mus = new Audio(mus1);
+      mus.play();
+      mus.addEventListener('timeupdate', function() {
+      if( mus.currentTime >= en) {
+        mus.pause();
+        mus.currentTime = str;
+        mus.play();
+      }
+      });   
+    }
+    function pauseMusic() {
+      mus.pause();
+    }
+
+    function handleFileSelect(evt) {
+      var file = evt.target.mp3drop;
+    }
+  </script>
+</body>
+</html>
+

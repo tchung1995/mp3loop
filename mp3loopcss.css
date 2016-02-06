@@ -1,0 +1,29 @@
+
+.inputpanel {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  padding: 50px;
+  background-color: #0099ff;
+  border-radius: 25px;
+}
+
+#drop {
+  background-color: green;
+  height: 50px;
+  width: 50px;
+}
+body {
+  background-color: #3366ff;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 150px;
+  font-family: century;
+}
+strong {
+  color: #ffffff;
+  font-family: century;
+}
